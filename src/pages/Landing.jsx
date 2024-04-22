@@ -8,7 +8,7 @@ function Main() {
         if (event.data === 'loginClicked') {
             // Navigate to login page
             // history.push('/login');
-            window.open("http://localhost:3000/login" , "_self")
+            window.open("https://rajaeduacademy.vercel.app/login" , "_self")
         }
     };
 
