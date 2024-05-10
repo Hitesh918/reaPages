@@ -15,20 +15,21 @@ function AdminAddStudent(props) {
     // const [teacherId, setTeacherId] = React.useState("")
 
     React.useEffect(() => {
-        const fetchData = async () => {
-            console.log("fn called")
-            try {
-                const response = await axios.get("https://reaserver.onrender.com/courseList");
-                setCourses(response.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
+        // const fetchData = async () => {
+        //     console.log("fn called")
+        //     try {
+        //         const response = await axios.get("https://reaserver.onrender.com/courseList");
+        //         setCourses(response.data);
+        //     } catch (error) {
+        //         console.error("Error fetching data:", error);
+        //     }
+        // };
 
-        fetchData();
+        // fetchData();
+        setCourses(props.courses)
     }, []);
 
-    // console.log(courses);
+    console.log("courses" , props.courses);
 
     function handleChange(e) {
         if (e.target.value === "new") {
@@ -173,7 +174,7 @@ function AdminAddStudent(props) {
                                 <select onChange={handleChange2} id="courses" name="courses" required>
                                     <option value="" disabled selected>Select Course</option>
                                     {
-                                        courses.length && courses.map((course, index) => (
+                                        courses&&courses.length && courses.map((course, index) => (
                                             <option value={course.courseId} >{course.courseName}</option>
                                         ))
                                     }
@@ -184,7 +185,7 @@ function AdminAddStudent(props) {
                                 <select id="teacher" name="teacher" required>
                                     <option value="" disabled selected>Select Teacher</option>
                                     {
-                                        courses.length && (index > -1) && courses[index].teacherList.map((teacher, ind) => (
+                                        courses&&courses.length && (index > -1) && courses[index].teacherList.map((teacher, ind) => (
                                             <option value={teacher.teacherId} >{teacher.teacherName}</option>
                                         ))
                                     }
@@ -207,7 +208,7 @@ function AdminAddStudent(props) {
                                 <select onChange={handleChange2} id="courses" name="courses" required>
                                     <option value="" disabled selected>Select Course</option>
                                     {
-                                        courses.length && courses.map((course, index) => (
+                                        courses&&courses.length && courses.map((course, index) => (
                                             <option value={course.courseId} >{course.courseName}</option>
                                         ))
                                     }
@@ -218,7 +219,7 @@ function AdminAddStudent(props) {
                                 <select id="teacher" name="teacher" required>
                                     <option value="" disabled selected>Select Teacher</option>
                                     {
-                                        courses.length && (index > -1) && courses[index].teacherList.map((teacher, ind) => (
+                                        courses&&courses.length && (index > -1) && courses[index].teacherList.map((teacher, ind) => (
                                             <option value={teacher.teacherId} >{teacher.teacherName}</option>
                                         ))
                                     }

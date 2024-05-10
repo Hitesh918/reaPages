@@ -21,17 +21,6 @@ function AdminLanding(props) {
    console.log("props ", props)
 
 
-   async function startGoogleMeetCall() {
-      try {
-         const resp = await axios.get("http://localhost:4000/api/createMeeting");
-         console.log(resp.data)
-         window.open(resp.data.meetingLink, "_blank")
-      }
-      catch (error) {
-         console.error('An error occurred:', error);
-      }
-   }
-
 
 
    return (

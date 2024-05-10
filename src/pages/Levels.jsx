@@ -38,7 +38,7 @@ function Levels(props) {
                     <div className="column">
 
                         <div className="thumb">
-                            <img src="images/thumb-1.png" alt="" />
+                            <img src={`images/${data && data.id}.png`} alt="" />
                             <span>{data && data.numberOfLevels} levels</span>
                         </div>
                     </div>
@@ -68,18 +68,9 @@ function Levels(props) {
                 <div className="box-container">
 
                     {Array.from({ length: data && data.numberOfLevels }, (_, i) => (
-                        // <a
-                        //     key={i + 1}
-                        //     className={`box ${i + 1 > data.level ? 'disabled-link' : ''}`}
-                        //     href={`/resource?data=${encodeURIComponent(JSON.stringify({ "id": data.id, "level": i + 1 , "studentId" : data.studentId}))}`}
-                        // >
-                        //     <i className="fas fa-play"></i>
-                        //     <img src="images/post-1-1.png" alt="" />
-                        //     <h3>Level {i + 1}</h3>
-                        // </a>
                         <Link
                             to={`/resource?data=${encodeURIComponent(JSON.stringify({ "id": data.id, "level": data.level, "studentId": data.studentId }))}`}
-                            className={`box ${i+1> data.level ? 'disabled-link' : ''}`}
+                            className={`box ${i+1 !== data.level ? 'disabled-link' : ''}`}
                         >
                             <i className="fas fa-play"></i>
                             <img src="images/post-1-1.png" alt="" />

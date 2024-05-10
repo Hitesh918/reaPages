@@ -34,17 +34,6 @@ function AdminAddTeacher(props) {
     };
 
     React.useEffect(() => {
-        // const fetchData = async () => {
-        //     console.log("fn called")
-        //     try {
-        //         const response = await axios.get("https://reaserver.onrender.com/courseList");
-        //         setCourses(response.data);
-        //     } catch (error) {
-        //         console.error("Error fetching data:", error);
-        //     }
-        // };
-
-        // fetchData();
         setCourses(props.courses)
     }, []);
 

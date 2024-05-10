@@ -10,7 +10,20 @@ import AdminUploadMaterial from './pages/AdminUploadMaterial.jsx';
 import AdminViewTeacherProfile from './pages/AdminViewTeacherProfile.jsx';
 import AdminViewCourses from './pages/AdminViewCourse.jsx';
 import AdminViewStudent from './pages/AdminViewStudent.jsx';
-
+import AddEventForm from './pages/AddEventForm.jsx';
+import AllTeachers from './pages/AllTeachers.jsx';
+import AllTeachersProfileView from './pages/AllTeachersProfileView.jsx';
+import ChooseTemplate from './pages/ChooseTemplate.jsx';
+import Page1 from './pages/345.jsx';
+import Page2 from './pages/334.jsx';
+import Page3 from './pages/344.jsx';
+import Page4 from './pages/4boxes.jsx';
+import SPage1 from './pages/Spage345.jsx';
+import SPage2 from './pages/Spage334.jsx';
+import SPage3 from './pages/Spage344.jsx';
+import TPage1 from './pages/Tpage345.jsx';
+import TPage2 from './pages/Tpage334.jsx';
+import TPage3 from './pages/Tpage344.jsx';
 import TeacherLanding from './pages/teacherLanding.jsx';
 import TeacherProfile from './pages/teacher_profile.jsx';
 import ViewStudent from './pages/ViewStudent.jsx';
@@ -201,7 +214,7 @@ function App() {
                         {userRole === 'admin' && (
                             <>
                                 <Route path='/Admin' element={<AdminLanding courses={allCourses} userRole={userRole} id={userData && userData.superAdminId} />} />
-                                <Route path='/AdminAddStudent' element={<AdminAddStudent courses={userData && userData.courses} id={userData && userData.superAdminId} />} />
+                                <Route path='/AdminAddStudent' element={<AdminAddStudent courses={allCourses} id={userData && userData.superAdminId} />} />
                                 <Route path='/AdminAddTeacher' element={<AdminAddTeacher courses={allCourses} id={userData && userData.superAdminId} />} />
                                 {/* <Route path='/adminupdate' element={<AdminUpdate />} /> */}
                                 <Route path='/AdminProfile' element={<AdminProfile details={userData} />} />
@@ -209,6 +222,14 @@ function App() {
                                 <Route path='/AdminViewCourses' element={<AdminViewCourses />} />
                                 <Route path='/AdminViewTeacherProfile' element={<AdminViewTeacherProfile />} />
                                 <Route path='/AdminViewStudent' element={<AdminViewStudent />} />
+                                <Route path='/AddEventForm' element={<AddEventForm />} />
+                                <Route path='/AllTeachers' element={<AllTeachers />} />
+                                <Route path='/AllTeachersProfileView' element={<AllTeachersProfileView />} />
+                                <Route path='/ChooseTemplate' element={<ChooseTemplate courses={allCourses} />} />
+                                <Route path='/Page1' element={<Page1 />} />
+                                <Route path='/Page2' element={<Page2 />} />
+                                <Route path='/Page3' element={<Page3 />} />
+                                <Route path='/Page4' element={<Page4 />} />
                             </>
                         )}
                         {userRole === "teacher" && (
@@ -218,7 +239,9 @@ function App() {
                                 <Route path='/ViewStudent' element={<ViewStudent />} />
                                 <Route path='/ManageCourse' element={<ManageCourse />} />
                                 <Route path='/ManageLevel' element={<ManageLevel />} />
-
+                                <Route path='/TPage1' element={<TPage1 />} />
+                                <Route path='/TPage2' element={<TPage2 />} />
+                                <Route path='/TPage3' element={<TPage3 />} />
                             </>
                         )}
                         {/* Student routes */}
@@ -231,6 +254,9 @@ function App() {
                                 <Route path='/resource' element={<Resource id={userData && userData.studentId} />} />
                                 <Route path='/about' element={<About />} />
                                 <Route path='/contact' element={<Contact />} />
+                                <Route path='/SPage1' element={<SPage1 />} />
+                                <Route path='/SPage2' element={<SPage2 />} />
+                                <Route path='/SPage3' element={<SPage3 />} />
                             </>
                         )}
                         {/* Common routes */}

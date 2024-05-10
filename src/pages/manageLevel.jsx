@@ -143,7 +143,7 @@ function ManageLevel(props) {
                                                 )
                                             })}
                                         </select>
-                                        <Link to={`/ViewStudent?data=${encodeURIComponent(JSON.stringify({ "id": student.studentId }))}`} className="profile-btn">View Profile</Link>
+                                        <Link to={`/ViewStudent?data=${encodeURIComponent(JSON.stringify({ "id": student.studentId , courseId:data.id }))}`} className="profile-btn">View Profile</Link>
                                         {/* <button className="profile-btn" >View Profile</button> */}
                                     </td>
                                 </tr>

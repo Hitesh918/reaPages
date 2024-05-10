@@ -8,7 +8,7 @@ function Main() {
         if (event.data === 'loginClicked') {
             // Navigate to login page
             // history.push('/login');
-            window.open("https://rajaeduacademy.vercel.app/login" , "_self")
+            window.open("http://localhost:3000/login" , "_self")
         }
     };
 
@@ -24,7 +24,7 @@ function Main() {
 
     return (
         <div >
-            <iframe src="https://rea-landing-page-flame.vercel.app/" style={{ width: '124%', height: '163rem', border: 'none', position: "relative", right: "300px" }}></iframe>
+            <iframe src="http://localhost:3001/" style={{ width: '124%', height: '163rem', border: 'none', position: "relative", right: "300px" }}></iframe>
         </div>
     )
 }
