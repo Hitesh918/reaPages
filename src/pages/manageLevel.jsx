@@ -14,7 +14,7 @@ function ManageLevel(props) {
 
     React.useEffect(() => {
         async function getCourseDetails() {
-            const res = await axios.get(`http://localhost:5000/getStudentList`, {
+            const res = await axios.get(`https://reaserver.onrender.com/getStudentList`, {
                 params: {
                     courseId: data.id,
                     adminId: data.adminId,
@@ -31,7 +31,7 @@ function ManageLevel(props) {
     //     var confirmed = window.confirm("Are you sure you want to put thhis student into new batch?");
     //     if (confirmed) {
     //         try {
-    //             const res = await axios.post("http://localhost:5000/changeBatch", {}, {
+    //             const res = await axios.post("https://reaserver.onrender.com/changeBatch", {}, {
     //                 params: {
     //                     studentId: e.target.value,
     //                     courseId: data.id,
@@ -56,7 +56,7 @@ function ManageLevel(props) {
         var confirmed = window.confirm("Are you sure you want to put this student into new batch?");
         if (confirmed) {
             try {
-                const res = await axios.post("http://localhost:5000/changeBatch", {}, {
+                const res = await axios.post("https://reaserver.onrender.com/changeBatch", {}, {
                     params: {
                         studentId: studentId,
                         courseId: data.id,
@@ -79,9 +79,9 @@ function ManageLevel(props) {
         const link = document.getElementById("link").value;
         console.log(link)
         try {
-            // const resp = await axios.get("http://localhost:5000/api/createMeeting");
+            // const resp = await axios.get("https://reaserver.onrender.com/api/createMeeting");
             // console.log(resp.data)
-            await axios.post("http://localhost:5000/updateClassLink", {}, {
+            await axios.post("https://reaserver.onrender.com/updateClassLink", {}, {
                 params: {
                     adminId: data.adminId,
                     batch: data.batch,
