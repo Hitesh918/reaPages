@@ -105,20 +105,20 @@ function TeacherLanding(props) {
                            <div className="box" key={course.courseId}>
                               <div className="thumb">
                                  <img src={`images/${course.courseId}.png`} alt="" />
-                               <span>{course.numberOfBatches} Batches</span> { }
+                                 <span>{course.numberOfBatches} Batches</span> { }
                               </div>
                               <h3 className="title">{course.courseName}</h3>
-                              <Link to={`/ManageCourse?data=${encodeURIComponent(JSON.stringify({"id": course.courseId, "numberOfBatches": course.numberOfBatches , "adminId" : props&&props.adminId}))}`} className="inline-btn">Manage Course <i className="fa-solid fa-arrow-right"></i></Link>
+                              <Link to={`/ManageCourse?data=${encodeURIComponent(JSON.stringify({ "id": course.courseId, "numberOfBatches": course.numberOfBatches, "adminId": props && props.adminId }))}`} className="inline-btn">Manage Course <i className="fa-solid fa-arrow-right"></i></Link>
 
-                           </div>   
+                           </div>
                         );
                      })}
                      {props && props.courses && props.courses.length === 0 && <h1>No Courses</h1>}
                      {props && props.courses && props.courses.length < 2 && <div></div>}
                   </div>
-                  <div className="more-btn">
+                  {/* <div className="more-btn">
                      <a href="/courses" className="inline-option-btn">View All Courses</a>
-                  </div>
+                  </div> */}
                </section>
             </div>
          }

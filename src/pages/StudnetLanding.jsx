@@ -157,9 +157,9 @@ function StudentLanding(props) {
 
                   </div>
 
-                  <div className="more-btn">
+                  {/* <div className="more-btn">
                      <a href="/courses" className="inline-option-btn">View All Courses</a>
-                  </div>
+                  </div> */}
 
                </section>
 
