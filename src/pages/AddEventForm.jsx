@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
+import axios from 'axios';
 
 const AddEventForm = () => {
+  const [file, setFile] = useState("");
   const [values, setValues] = useState({
     name: '',
     about: '',
@@ -12,19 +14,79 @@ const AddEventForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
   const handleChange = event => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newErrors = validate(values);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      // Submit form here
+      try {
+        let base64 
+        if (file !== "" ) {
+          base64 = await convertBase64(file);
+        }
+
+        var combinedDateTime = new Date(values.date + "T" + values.time);
+
+        const eventData = {
+          image: base64,
+          name: values.name,
+          about: values.about,
+          date: combinedDateTime,
+          venue: values.venue,
+        };
+
+        let res = await axios.post("https://reaserver.onrender.com/newEvent", eventData, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (res.data === "done") {
+          alert("Event Created Successfully");
+          setValues({
+            name: '',
+            about: '',
+            date: '',
+            time: '',
+            venue: '',
+          });
+          setFile("");
+        }
+        else {
+          alert("Error in creating event. Please try again later.");
+        }
+      }
+      catch (error) {
+        alert("Error in creating event. Please try again later.");
+        console.log("Error in creating eventttttttttt")
+        console.error(error);
+      }
     }
   };
+
+  function fileChange(e) {
+    setFile(e.target.files[0]);
+  }
 
   const validate = values => {
     let errors = {};
@@ -90,9 +152,9 @@ const AddEventForm = () => {
     <div>
       <Header />
       <form onSubmit={handleSubmit} style={formStyle}>
-        <div style={fieldStyle}>
+        <div style={{ ...fieldStyle, color: "#8e44ad" }}>
           <label style={labelStyle}>Image</label>
-          <input type="file" accept="image/*" style={inputStyle} />
+          <input onChange={fileChange} type="file" accept="image/*" style={inputStyle} />
         </div>
         <div style={fieldStyle}>
           <label style={labelStyle}>Name</label>
