@@ -43,7 +43,7 @@ function AdminLanding(props) {
                            <div className="box" key={course.courseId}>
 
                               <div className="thumb">
-                                 <img src={`images/${course.courseId}.png`} alt="" />
+                                 <img src={`images/${course.courseId}.jpg`} alt="" />
                                  <span>{course.numberOfLevels} Levels</span>
                               </div>
                               <h3 className="title">{course.courseName}</h3>

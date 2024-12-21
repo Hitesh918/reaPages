@@ -119,6 +119,7 @@ function App() {
 
         const fetchDataForAdminPages = async (id) => {
             console.log("callllllled")
+            console.log(id)
             try {
                 const adminDetails = await axios.get("https://reaserver.onrender.com/adminDetails", {
                     params: {

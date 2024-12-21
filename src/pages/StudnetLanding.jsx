@@ -128,7 +128,7 @@ function StudentLanding(props) {
                                  </div>
                               </div>
                               <div className="thumb">
-                                 <img src={`images/${course.courseDetails.courseId}.png`} alt="" />
+                                 <img src={`images/${course.courseDetails.courseId}.jpg`} alt="" />
                                  <span>{ course &&  course.courseDetails.numberOfLevels}  Levels</span>
                               </div>
                               <h3 className="title">{course.courseDetails.courseName}</h3>

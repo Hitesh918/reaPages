@@ -81,7 +81,7 @@ function ChangePassword() {
                             <input type="password" name="oldPassword" onChange={handleSignInChange} placeholder="Enter old Password" required maxLength="20" className="box" />
                             <p>New Password <span>*</span></p>
                             <input type="password" name="newPassword" onChange={handleSignInChange} placeholder="Enter new Password" required maxLength="20" className="box" />
-                            <button onClick={handleSignIn} className="btn">Log In</button>
+                            <button onClick={handleSignIn} className="btn">Change</button>
                         </form>
 
                     </section>

@@ -24,7 +24,7 @@ function Main() {
 
     return (
         <div >
-            <iframe src="http://localhost:3001/" style={{ width: '124%', height: '163rem', border: 'none', position: "relative", right: "300px" }}></iframe>
+            <iframe src="https://rea-landing-page-flame.vercel.app/" style={{ width: '124%', height: '163rem', border: 'none', position: "relative", right: "300px" }}></iframe>
         </div>
     )
 }

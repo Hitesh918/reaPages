@@ -29,7 +29,7 @@ function ManageCourse(props) {
                             disabled={i + 1 > data.level}
                         >
                             <i className="fas fa-play"></i>
-                            <img src="images/post-1-1.png" alt="" />
+                            <img src="images/1.jpg" alt="" />
                             <h3>Batch {i + 1}</h3>
                         </Link>
                     ))}

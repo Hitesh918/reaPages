@@ -104,7 +104,7 @@ function TeacherLanding(props) {
                         return (
                            <div className="box" key={course.courseId}>
                               <div className="thumb">
-                                 <img src={`images/${course.courseId}.png`} alt="" />
+                                 <img src={`images/${course.courseId}.jpg`} alt="" />
                                  <span>{course.numberOfBatches} Batches</span> { }
                               </div>
                               <h3 className="title">{course.courseName}</h3>

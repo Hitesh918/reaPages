@@ -45,6 +45,7 @@ function AdminAddTeacher(props) {
 
         var fullName = document.getElementById("fullName").value.trim();
         var emaill = document.getElementById("email").value.trim();
+        var pw = document.getElementById("pw").value.trim();
         var phone = document.getElementById("phone").value.trim();
         var courses = Object.keys(checkedCourses).filter(courseId => checkedCourses[courseId]).map(courseId => parseInt(courseId));
         var profile = document.getElementById("profile").value.trim();
@@ -78,7 +79,7 @@ function AdminAddTeacher(props) {
                         
                         alert("Teacher added successfully!");
                         console.log(res)
-                        createUserWithEmailAndPassword(anotherAuth, `rea.adm${res.data.id}@gmail.com`, `adm${res.data.id}`)
+                        createUserWithEmailAndPassword(anotherAuth, `rea.adm${res.data.id}@gmail.com`, `${pw}`)
                             .catch((error) => {
                                 alert(error.message)
                             })
@@ -116,6 +117,10 @@ function AdminAddTeacher(props) {
                         <div className="form-group">
                             <label htmlFor="email">Email ID:</label>
                             <input type="email" id="email" name="email" required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="pw">Password:</label>
+                            <input type="text" id="pw" name="pw" required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="phone">Phone Number:</label>
