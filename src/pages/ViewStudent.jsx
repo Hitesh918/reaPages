@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
+
 function ViewStudent(props) {
     const [searchParams] = useSearchParams();
     const dataString = searchParams.get('data');
@@ -14,7 +16,7 @@ function ViewStudent(props) {
     React.useEffect(() => {
         async function getStudentDetails() {
             try {
-                const res = await axios.get(`https://reaserver.onrender.com/studentDetails`, {
+                const res = await axios.get(`${BASE_URL}/studentDetails`, {
                     params: {
                         studentId: data.id
                     }
@@ -27,7 +29,7 @@ function ViewStudent(props) {
 
         async function getSubmissions() {
             try {
-                const res = await axios.get(`https://reaserver.onrender.com/getSubmissions`, {
+                const res = await axios.get(`${BASE_URL}/getSubmissions`, {
                     params: {
                         studentId: data.id,
                         courseId: data.courseId
@@ -47,7 +49,7 @@ function ViewStudent(props) {
 
     // React.useEffect(() => {
     //     async function getStudentDetails() {
-    //         const res = await axios.get(`https://reaserver.onrender.com/studentDetails`, {
+    //         const res = await axios.get(`${BASE_URL}/studentDetails`, {
     //             params: {
     //                 studentId: data.id
     //             }
@@ -56,7 +58,7 @@ function ViewStudent(props) {
     //     }
 
     //     async function getSubmissions() {
-    //         const res = await axios.get(`https://reaserver.onrender.com/getSubmissions`, {
+    //         const res = await axios.get(`${BASE_URL}/getSubmissions`, {
     //             params: {
     //                 studentId: data.id,
     //                 courseId: data.courseId
@@ -73,14 +75,14 @@ function ViewStudent(props) {
     const handleSubmit = async (page) => {
         // console.log(e)
         try {
-            let resp = await axios.get(`https://reaserver.onrender.com/getStudentLevel`, {
+            let resp = await axios.get(`${BASE_URL}/getStudentLevel`, {
                 params: {
                     studentId: data.id,
                     courseId: data.courseId
                 }
             });
             if (resp.data !== "not found") {
-                let res = await axios.get(`https://reaserver.onrender.com/getTemplateType`, {
+                let res = await axios.get(`${BASE_URL}/getTemplateType`, {
                     params: {
                         studentId: data.id,
                         courseId: data.courseId,

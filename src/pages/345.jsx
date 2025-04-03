@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const Page1 = () => {
     const [cellValues, setCellValues] = useState({
@@ -67,7 +68,7 @@ const Page1 = () => {
             alert("Please enter page number")
             return
         }
-        let res = await axios.post("https://reaserver.onrender.com/newQuestion", {}, {
+        let res = await axios.post(`${BASE_URL}/newQuestion`, {}, {
             params: {
                 courseId: data.courseId,
                 level: data.level,

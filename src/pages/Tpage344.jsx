@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const Page1 = () => {
     const [cellValues, setCellValues] = useState({
@@ -21,7 +22,7 @@ const Page1 = () => {
         console.log("data in teacher is  ", data)
         const fetchData = async () => {
             try {
-                const firstApiResponse = await axios.get("https://reaserver.onrender.com/getQuestion", {
+                const firstApiResponse = await axios.get("${BASE_URL}/getQuestion", {
                     params: {
                         courseId: data.courseId,
                         level: data.level,

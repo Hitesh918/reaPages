@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
+
 function StudentProfile(props) {
 
    const [details, setDetails] = React.useState({})

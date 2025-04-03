@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { deleteUser } from 'firebase/auth';
+import BASE_URL from '../config';
 
 function AllTeachersProfileView(props) {
     const [searchParams] = useSearchParams();
@@ -16,7 +17,7 @@ function AllTeachersProfileView(props) {
         async function fetchData() {
             try {
                 let arr = []
-                const teacherRes = await axios.get(`https://reaserver.onrender.com/adminDetails`, {
+                const teacherRes = await axios.get(`${BASE_URL}/adminDetails`, {
                     params: {
                         adminId: data.id,
                     }
@@ -24,7 +25,7 @@ function AllTeachersProfileView(props) {
                 for (const integer of teacherRes.data.courses) {
                     try {
                         // Make API call
-                        const response = await axios.get('https://reaserver.onrender.com/getStudentsUnderTeacher', {
+                        const response = await axios.get(`${BASE_URL}/getStudentsUnderTeacher`, {
                             params: {
                                 courseId: integer.courseId,
                                 adminId: data.id
@@ -57,7 +58,7 @@ function AllTeachersProfileView(props) {
         var confirmed = window.confirm("Are you sure you want to remove this student from this course?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeStudentFromCourse", {}, {
+                const res = await axios.post(`${BASE_URL}/removeStudentFromCourse`, {}, {
                     params: {
                         studentId: e.target.value,
                         courseId: data.courseId
@@ -77,7 +78,7 @@ function AllTeachersProfileView(props) {
         var confirmed = window.confirm("Are you sure you want to remove this teacher from this course?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeTeacherFromCourse", {}, {
+                const res = await axios.post(`${BASE_URL}/removeTeacherFromCourse`, {}, {
                     params: {
                         adminId: data.id,
                         "courseId": courseId
@@ -99,7 +100,7 @@ function AllTeachersProfileView(props) {
         var confirmed = window.confirm("Are you sure you want to remove this teacher from all courses?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeTeacherFromAllCourses", {}, {
+                const res = await axios.post(`${BASE_URL}/removeTeacherFromAllCourses`, {}, {
                     params: {
                         adminId: data.id
                     }

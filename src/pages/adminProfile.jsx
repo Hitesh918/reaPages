@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 // import AdminSideBar from '../components/AdminSideBar';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function AdminProfile(props) {
     const [details, setDetails] = React.useState({})

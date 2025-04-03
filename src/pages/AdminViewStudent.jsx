@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function AdminViewStudent(props) {
     const [searchParams] = useSearchParams();
@@ -11,7 +12,7 @@ function AdminViewStudent(props) {
 
     React.useEffect(() => {
         async function getStudentDetails() {
-            const res = await axios.get(`https://reaserver.onrender.com/studentDetails`, {
+            const res = await axios.get(`${BASE_URL}/studentDetails`, {
                 params: {
                     studentId: data.id
                 }
@@ -26,7 +27,7 @@ function AdminViewStudent(props) {
         var confirmed = window.confirm("Are you sure you want to remove this student from all courses?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeStudentFromAllCourses", {}, {
+                const res = await axios.post(`${BASE_URL}/removeStudentFromAllCourses`, {}, {
                     params: {
                         studentId: data.id
                     }

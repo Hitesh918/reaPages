@@ -4,6 +4,7 @@ import StudentSideBar from '../components/StudentSideBar';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function Levels(props) {
     const [searchParams] = useSearchParams();
@@ -14,7 +15,7 @@ function Levels(props) {
     React.useEffect(() => {
         if (props && props.id && data && data.id) {
             async function getCourseDetails() {
-                const res = await axios.get(`https://reaserver.onrender.com/getCourseDetails?courseId=${data.id}&studentId=${props.id}`);
+                const res = await axios.get(`${BASE_URL}/getCourseDetails?courseId=${data.id}&studentId=${props.id}`);
                 setCourseDetails(res.data);
             }
             getCourseDetails();
@@ -38,7 +39,7 @@ function Levels(props) {
                     <div className="column">
 
                         <div className="thumb">
-                            <img src={`images/${data && data.id}.png`} alt="" />
+                            <img src={`images/cover.jpg`} alt="" />
                             <span>{data && data.numberOfLevels} levels</span>
                         </div>
                     </div>
@@ -51,7 +52,7 @@ function Levels(props) {
                         </div>
 
                         <div className="details">
-                            <h3>About Teacher</h3>
+                            {/* <h3>About Teacher</h3> */}
                             {courseDetails && courseDetails.profile && <p>{courseDetails.profile}<p><p></p></p></p>}
                             {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum minus reiciendis, error sunt veritatis exercitationem deserunt velit doloribus itaque voluptate.</p> */}
                             {/* <a href="/teacher_profile" className="inline-btn">view profile</a> */}
@@ -73,7 +74,7 @@ function Levels(props) {
                             className={`box ${i+1 !== data.level ? 'disabled-link' : ''}`}
                         >
                             <i className="fas fa-play"></i>
-                            <img src="images/post-1-1.png" alt="" />
+                            <img src={`images/${data && data.id}.jpg`} alt="" />
                             <h3>Level {i+1}</h3>
                         </Link>
                     ))}

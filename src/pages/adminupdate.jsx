@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BASE_URL from '../config';
 
 function AdminUpdate() {
   // Define state for form values

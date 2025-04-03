@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import AdminSideBar from '../components/AdminSideBar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
+
 function ChooseTemplate(props) {
     
     const navigate = useNavigate();

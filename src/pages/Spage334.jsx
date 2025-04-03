@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const Page1 = () => {
     const [cellValues, setCellValues] = useState({
@@ -20,7 +21,7 @@ const Page1 = () => {
     React.useEffect(() => {
         const fetchData = async () => {
             try {
-                const firstApiResponse = await axios.get("https://reaserver.onrender.com/getQuestion", {
+                const firstApiResponse = await axios.get(`${BASE_URL}/getQuestion`, {
                     params: {
                         courseId: data.courseId,
                         level: data.level,
@@ -28,7 +29,7 @@ const Page1 = () => {
                     }
                 });
     
-                const secondApiResponse = await axios.get("https://reaserver.onrender.com/getProgressStudent", {
+                const secondApiResponse = await axios.get(`${BASE_URL}/getProgressStudent`, {
                     params: {
                         courseId: data.courseId,
                         level: data.level,
@@ -149,7 +150,7 @@ const Page1 = () => {
 
     const handleSubmit = async () => {
         // console.log(cellValues);
-        let res = await axios.post("https://reaserver.onrender.com/studentSubmit", {}, {
+        let res = await axios.post(`${BASE_URL}/studentSubmit`, {}, {
             params: {
                 studentId: data.studentId,
                 courseId: data.courseId,
@@ -176,7 +177,7 @@ const Page1 = () => {
 
         let rowNum=wrongs.length === 0 ? 2 : 1
 
-        let res = await axios.post("https://reaserver.onrender.com/updateProgress", {}, {
+        let res = await axios.post(`${BASE_URL}/updateProgress`, {}, {
             params: {
                 studentId: data.studentId,
                 courseId: data.courseId,

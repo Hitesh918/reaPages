@@ -1,5 +1,6 @@
 import React from "react";
 // import { useHistory } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function Main() {
     // const history = useHistory();

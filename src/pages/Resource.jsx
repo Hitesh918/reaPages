@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function Resource(props) {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Resource(props) {
     React.useEffect(() => {
         async function getLink() {
             try {
-                const res = await axios.get(`https://reaserver.onrender.com/getClassLink`, {
+                const res = await axios.get(`${BASE_URL}/getClassLink`, {
                     params: {
                         studentId: data.studentId,
                         courseId: data.id,
@@ -33,7 +34,7 @@ function Resource(props) {
     const handleSubmit = async () => {
         const pageNumber = document.getElementById("page").value;
         try {
-            let res = await axios.get("https://reaserver.onrender.com/getTemplateType", {
+            let res = await axios.get(`${BASE_URL}/getTemplateType`, {
                 params: {
                     courseId: data.id,
                     pageNumber: pageNumber,

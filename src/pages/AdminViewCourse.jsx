@@ -4,6 +4,7 @@ import AdminSideBar from '../components/AdminSideBar';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function AdminViewCourses(props) {
     const [searchParams] = useSearchParams();
@@ -17,7 +18,7 @@ function AdminViewCourses(props) {
     React.useEffect(() => {
         async function getTeachers() {
             try {
-                const res = await axios.get(`https://reaserver.onrender.com/sudoTeacherList?courseId=${data.id}`);
+                const res = await axios.get(`${BASE_URL}/sudoTeacherList?courseId=${data.id}`);
                 setTeachers(res.data)
                 setTeacherList(res.data.map(teacher => ({"adminId": teacher.adminId , "name": teacher.name , })))
                 console.log(res.data)

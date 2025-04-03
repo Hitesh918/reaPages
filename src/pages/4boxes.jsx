@@ -66,7 +66,7 @@
 
 //     const handleSubmit = async () => {
 //         console.log(cellValues);
-//         let res = await axios.post("https://reaserver.onrender.com/newQuestion", {}, {
+//         let res = await axios.post("${BASE_URL}/newQuestion", {}, {
 //             params: {
 //                 table1: cellValues.table1,
 //                 table2: cellValues.table2,
@@ -181,7 +181,7 @@
 
 
 import React, { useState } from 'react';
-
+import BASE_URL from '../config';
 const Page4 = () => {
     // Define a state to hold the values of cells
     const [cellValues, setCellValues] = useState({

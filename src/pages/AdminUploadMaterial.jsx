@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import AdminSideBar from '../components/AdminSideBar';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 function AdminUploadMaterial(props) {
 
@@ -32,7 +33,7 @@ function AdminUploadMaterial(props) {
          return
       }
       const base64 = await convertBase64(file)
-      axios.post("https://reaserver.onrender.com/upload", { image: base64, courseName: choosenCourse, level: document.getElementById("levels").value },
+      axios.post(`${BASE_URL}/upload`, { image: base64, courseName: choosenCourse, level: document.getElementById("levels").value },
       ).then((res) => {
          if (res.data === "Resource added") {
             setFile("")

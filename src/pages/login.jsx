@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import BASE_URL from '../config';
 
 function Login() {
 

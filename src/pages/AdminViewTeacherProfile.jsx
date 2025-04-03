@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { deleteUser } from 'firebase/auth';
+import BASE_URL from '../config';
 
 function AdminViewTeacherProfile(props) {
     const [searchParams] = useSearchParams();
@@ -16,7 +17,7 @@ function AdminViewTeacherProfile(props) {
     React.useEffect(() => {
         async function fetchData() {
             try {
-                const teacherRes = await axios.get(`https://reaserver.onrender.com/adminDetails`, {
+                const teacherRes = await axios.get(`${BASE_URL}/adminDetails`, {
                     params: {
                         adminId: data.id,
                     }
@@ -27,7 +28,7 @@ function AdminViewTeacherProfile(props) {
                     setNumberOfBatches(course.numberOfBatches)
                 }
                 console.log("teacherRes", teacherRes.data)
-                const studentsRes = await axios.get("https://reaserver.onrender.com/getStudentsUnderTeacher", {
+                const studentsRes = await axios.get(`${BASE_URL}/getStudentsUnderTeacher`, {
                     params: {
                         adminId: data.id,
                         courseId: data.courseId
@@ -51,7 +52,7 @@ function AdminViewTeacherProfile(props) {
         var confirmed = window.confirm("Are you sure you want to put this student into new batch?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/changeBatch", {}, {
+                const res = await axios.post(`${BASE_URL}/changeBatch`, {}, {
                     params: {
                         studentId: studentId,
                         courseId: data.courseId,
@@ -76,7 +77,7 @@ function AdminViewTeacherProfile(props) {
         if (confirmed) {
             try {
 
-                const res = await axios.post("https://reaserver.onrender.com/changeTeacher", {}, {
+                const res = await axios.post(`${BASE_URL}/changeTeacher`, {}, {
                     params: {
                         studentId: studentId,
                         courseId: data.courseId,
@@ -100,7 +101,7 @@ function AdminViewTeacherProfile(props) {
         var confirmed = window.confirm("Are you sure you want to remove this student from this course?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeStudentFromCourse", {}, {
+                const res = await axios.post(`${BASE_URL}/removeStudentFromCourse`, {}, {
                     params: {
                         studentId: e.target.value,
                         courseId: data.courseId
@@ -120,7 +121,7 @@ function AdminViewTeacherProfile(props) {
         var confirmed = window.confirm("Are you sure you want to remove this teacher from this course?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeTeacherFromCourse", {}, {
+                const res = await axios.post(`${BASE_URL}/removeTeacherFromCourse`, {}, {
                     params: {
                         adminId: data.id,
                         "courseId": courseId
@@ -142,7 +143,7 @@ function AdminViewTeacherProfile(props) {
         var confirmed = window.confirm("Are you sure you want to remove this teacher from all courses?");
         if (confirmed) {
             try {
-                const res = await axios.post("https://reaserver.onrender.com/removeTeacherFromAllCourses", {}, {
+                const res = await axios.post(`${BASE_URL}/removeTeacherFromAllCourses`, {}, {
                     params: {
                         adminId: data.id
                     }

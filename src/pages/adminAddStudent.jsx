@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { anotherAuth } from "../firebase";
 
 import axios from "axios"
+import BASE_URL from '../config';
 
 function AdminAddStudent(props) {
 
@@ -18,7 +19,7 @@ function AdminAddStudent(props) {
         // const fetchData = async () => {
         //     console.log("fn called")
         //     try {
-        //         const response = await axios.get("https://reaserver.onrender.com/courseList");
+        //         const response = await axios.get("${BASE_URL}/courseList");
         //         setCourses(response.data);
         //     } catch (error) {
         //         console.error("Error fetching data:", error);
@@ -73,7 +74,7 @@ function AdminAddStudent(props) {
 
             //console.log("Student added successfully!");
             if (props) {
-                axios.post("https://reaserver.onrender.com/newStudent", {}, {
+                axios.post(`${BASE_URL}/newStudent`, {}, {
                     params: {
                         name: fullName,
                         email: emaill,
@@ -115,7 +116,7 @@ function AdminAddStudent(props) {
         }
         var confirmed = window.confirm("Are you sure you want to add this student?");
         if (confirmed) {
-            axios.post("https://reaserver.onrender.com/addStudent", {}, {
+            axios.post(`${BASE_URL}/addStudent`, {}, {
                 params: {
                     studentId: userName.substring(7),
                     courseId: course,

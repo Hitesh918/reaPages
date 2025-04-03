@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 // import TeacherSideBar from '../components/TeacherSideBar';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function TeacherProfile(props) {
    const [details, setDetails] = React.useState({})

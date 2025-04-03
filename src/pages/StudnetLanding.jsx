@@ -6,6 +6,8 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Loader from "../components/Loader";
 import axios from 'axios';
+import BASE_URL from '../config';
+
 import { Link } from 'react-router-dom';
 function StudentLanding(props) {
 
@@ -26,7 +28,7 @@ function StudentLanding(props) {
    //          setTimeout(async () => {
    //             setLoading(false);
    //             if (user && user.email.substring(4, 7) === "stu") {
-   //                const studentDetails = await axios.get("https://reaserver.onrender.com/coursesEnrolledIn", {
+   //                const studentDetails = await axios.get("${BASE_URL}/coursesEnrolledIn", {
    //                   params: {
    //                      studentId: user.email.substring(7, 12)
    //                   }

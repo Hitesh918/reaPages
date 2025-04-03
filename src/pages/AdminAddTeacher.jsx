@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import AdminSideBar from '../components/AdminSideBar';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { anotherAuth } from "../firebase";
+import BASE_URL from '../config';
 
 import axios from "axios"
 function CourseCheckbox({ course, isChecked, onChange }) {
@@ -61,7 +62,7 @@ function AdminAddTeacher(props) {
 
             //console.log("Student added successfully!");
             if (props) {
-                axios.post("https://reaserver.onrender.com/newTeacher", {}, {
+                axios.post(`${BASE_URL}/newTeacher`, {}, {
                     params: {
                         name: fullName,
                         email: emaill,
@@ -78,7 +79,7 @@ function AdminAddTeacher(props) {
                         }
                         
                         alert("Teacher added successfully!");
-                        console.log(res)
+                        console.log("respose after creating new teacher " , res)
                         createUserWithEmailAndPassword(anotherAuth, `rea.adm${res.data.id}@gmail.com`, `${pw}`)
                             .catch((error) => {
                                 alert(error.message)

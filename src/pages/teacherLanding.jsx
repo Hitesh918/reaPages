@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from "../components/Loader";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function TeacherLanding(props) {
 

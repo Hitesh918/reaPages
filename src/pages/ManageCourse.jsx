@@ -4,6 +4,7 @@ import TeacherSideBar from '../components/TeacherSideBar';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BASE_URL from '../config';
 
 function ManageCourse(props) {
     const [searchParams] = useSearchParams();

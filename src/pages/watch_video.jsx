@@ -1,4 +1,5 @@
 import React from 'react'
+import BASE_URL from '../config';
 
 function watch_video(){
     return(

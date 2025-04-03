@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const AddEventForm = () => {
   const [file, setFile] = useState("");
@@ -55,7 +56,7 @@ const AddEventForm = () => {
           venue: values.venue,
         };
 
-        let res = await axios.post("https://reaserver.onrender.com/newEvent", eventData, {
+        let res = await axios.post(`${BASE_URL}/newEvent`, eventData, {
           headers: {
             'Content-Type': 'application/json',
           },

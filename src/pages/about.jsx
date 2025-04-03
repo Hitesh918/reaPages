@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import StudentSideBar from '../components/StudentSideBar'
+import BASE_URL from '../config';
+
 function about(){
     return(
         <div>
