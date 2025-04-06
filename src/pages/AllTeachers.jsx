@@ -58,6 +58,9 @@ function AllTeachers(props) {
                                     <td style={{ padding: '10px', border: '1px solid #ddd', color: 'black' }}>{teacher.email}</td>
                                     <td style={{ padding: '10px', border: '1px solid #ddd', color: 'black', textAlign: "center" }}>
                                         <Link to={`/AllTeachersProfileView?data=${encodeURIComponent(JSON.stringify({ "id": teacher.adminId}))}`} className="profile-btn">View Profile</Link>
+                                        <br></br>
+                                        <br></br>
+                                        <a href={teacher.classLink} target="_blank"  className="profile-btn">View Class</a>
                                     </td>
                                 </tr>
                             )
