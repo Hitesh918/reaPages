@@ -67,6 +67,10 @@ function AdminAddStudent(props) {
             alert("Please fill out all fields.");
             return false;
         }
+        if(phone.length !== 10){
+            alert("Invalid Mobile Number");
+            return false;
+        }
 
         // Confirmation dialog handled outside of JSX
         var confirmed = window.confirm("Are you sure you want to add this student?");
@@ -92,7 +96,7 @@ function AdminAddStudent(props) {
                         console.log(res)
                         createUserWithEmailAndPassword(anotherAuth, `rea.stu${res.data.id}@gmail.com`, `stu${res.data.id}`)
                             .catch((error) => {
-                                alert(error.message)
+                                alert("Failed to complete action, try again later.")
                             })
                     })
                     .catch((e) => {

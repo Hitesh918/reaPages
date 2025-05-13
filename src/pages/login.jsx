@@ -79,7 +79,7 @@ function Login() {
 
          })
          .catch((error) => {
-            alert(error.message)
+            alert("Unable to login at the moment.")
             setLoading(false);
          })
 
